@@ -30,6 +30,28 @@ export class ProductListComponent implements OnInit {
       this.products=JSON.parse(JSON.stringify(data));
     })
   }
+  delete(i){
+    console.log(i);
+    if(confirm('Are you sure?')===true){
+    this.productService.deleteProduct(i)
+    .subscribe((res)=>{
+      console.log('deleted');
+      //location.reload();
+      // this.products = JSON.parse(JSON.stringify(data));
+    })
+  }
+}
 
+  // searchTitle(): void {
+  //   this.productService.findByTitle(this.title)
+  //     .subscribe(
+  //       data => {
+  //         this.products = data;
+  //         console.log(data);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
 }
 

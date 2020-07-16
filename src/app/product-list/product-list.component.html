@@ -1,6 +1,21 @@
 <div class="card">
     <div class="card-header">
-        {{title}}
+        <div class="col-md-4 mr-auto">
+            {{title}}
+        </div>
+
+        <!-- <div class="col-md-8 ml-auto">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search by title" [(ngModel)]="title" />
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" (click)="searchTitle()">
+                  Search
+                </button>
+                </div>
+            </div>
+        </div> -->
+
+
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -17,6 +32,7 @@
                         <th>Available</th>
                         <th>Price</th>
                         <th>5 Star Rating </th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,6 +44,8 @@
                         <td>{{product.releaseDate}} </td>
                         <td>{{product.price}} </td>
                         <td>{{product.starRating}} </td>
+                        <td><button type="button" class="btn btn-secondary" (click)="update()">edit</button>
+                            <button type="button" class="btn btn-danger" (click)=delete(product._id)>delete</button></td>
                     </tr>
                 </tbody>
             </table>

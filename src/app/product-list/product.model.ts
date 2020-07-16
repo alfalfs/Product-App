@@ -3,7 +3,7 @@ export class ProductModel {
         public productId: number,
         public productName: string,
         public productCode: string,
-        public releaseDate: string,
+        public releaseDate: Date,
         public description: string,
         public price: number,
         public starRating: number,
