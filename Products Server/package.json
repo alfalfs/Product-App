@@ -1,0 +1,23 @@
+{
+    "name": "products-server",
+    "version": "1.0.0",
+    "description": "fsd angular integration server",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "mdbstart": "mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log --fork",
+        "devstart": "nodemon server.js",
+        "killport": "sudo kill -9 `sudo lsof -t -i:3000`"
+
+
+
+    },
+    "author": "Alfred Syriac",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mongoose": "^5.9.23",
+        "nodemon": "^2.0.4"
+    }
+}
