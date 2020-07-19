@@ -3,7 +3,7 @@ const productData = new mongoose.Schema({
     productId: Number,
     productName: String,
     productCode: String,
-    releaseDate: Date,
+    releaseDate: String,
     description: String,
     price: Number,
     starRating: Number,

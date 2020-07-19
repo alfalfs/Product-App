@@ -44,8 +44,8 @@
                         <td>{{product.releaseDate}} </td>
                         <td>{{product.price}} </td>
                         <td>{{product.starRating}} </td>
-                        <td><button type="button" class="btn btn-secondary" (click)="update()">edit</button>
-                            <button type="button" class="btn btn-danger" (click)=delete(product._id)>delete</button></td>
+                        <td><button type="button" class="btn btn-secondary " routerLink='/edit/{{product._id}}' *ngIf="loggedIn()">edit</button>
+                            <button type="button" class="btn btn-danger m-1" (click)=delete(product._id) *ngIf="loggedIn()">delete</button></td>
                     </tr>
                 </tbody>
             </table>

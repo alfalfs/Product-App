@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProductsService} from "../products.service";
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductsService,private router : Router) { }
   title:String = "Product Management";
   ngOnInit(): void {
+  }
+  loggedIn()
+  {
+    return !! localStorage.getItem('token')
+  }
+
+  logoutUser(){
+    localStorage.removeItem("token")
+    this.router.navigate["/"]
   }
 
 }

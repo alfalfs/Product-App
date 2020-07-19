@@ -7,17 +7,20 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "mdbstart": "mongod --dbpath /var/lib/mongo --logpath /var/log/mongodb/mongod.log --fork",
         "devstart": "nodemon server.js",
-        "killport": "sudo kill -9 `sudo lsof -t -i:3000`"
-
-
-
+        "killnode": "sudo kill -9 `sudo lsof -t -i:3000`",
+        "killng": "sudo kill -9 `sudo lsof -t -i:4200`"
     },
     "author": "Alfred Syriac",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.0.0",
         "cors": "^2.8.5",
         "express": "^4.17.1",
-        "mongoose": "^5.9.23",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.9.23"
+    },
+    "devDependencies": {
+        "dotenv": "^8.2.0",
         "nodemon": "^2.0.4"
     }
 }

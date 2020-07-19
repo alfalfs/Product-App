@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductModel } from './product.model';
 import { ProductsService } from '../products.service';
-
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,9 +18,7 @@ export class ProductListComponent implements OnInit {
   imageMargin: number = 2;
   showImage: boolean = false;
   //creating service object for calling getProduct()
-  constructor( private productService: ProductsService) { 
-
-  }
+  constructor( private productService: ProductsService ,private _authService: AuthService) { }
   toggleImage(): void{
     this.showImage = !this.showImage;
   }
@@ -30,14 +29,21 @@ export class ProductListComponent implements OnInit {
       this.products=JSON.parse(JSON.stringify(data));
     })
   }
-  delete(i){
+
+  loggedIn()
+  {
+    return !! localStorage.getItem('token')
+  }
+  delete(i:string){
     console.log(i);
     if(confirm('Are you sure?')===true){
     this.productService.deleteProduct(i)
-    .subscribe((res)=>{
-      console.log('deleted');
-      //location.reload();
-      // this.products = JSON.parse(JSON.stringify(data));
+    .subscribe((response:{id})=>{
+      console.log(`product with id ${response.id} deleted successfully`);
+      this.productService.getProducts()
+      .subscribe((data)=>{
+        this.products= JSON.parse(JSON.stringify(data))
+      })
     })
   }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/toPromise';
 
@@ -26,5 +26,17 @@ export class ProductsService {
  deleteProduct(i){
     return this.http.delete(`http://localhost:3000/products/${i}`);
   }
+  //edit
+  editProduct(id){
+    return this.http.get(`http://localhost:3000/edit/${id}`);
+  }
+
+  //update
+
+  updateProduct(item){
+    return this.http.post("http://localhost:3000/update", {"product":item})
+    .subscribe(data=>{console.log("updateservice" + data)})
+  }
+
   
 }
